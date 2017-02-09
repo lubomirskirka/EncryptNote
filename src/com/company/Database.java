@@ -5,6 +5,7 @@ import risko.MSaveEncrypt;
 
 import java.util.ArrayList;
 
+import static com.company.Main.notes;
 
 
 public class Database extends risko.MSaveEncrypt {
@@ -45,10 +46,22 @@ public class Database extends risko.MSaveEncrypt {
         deleteFile();
         createFile();
         write(0,"GodIsGood");
-        for (int i = 1; i < notes.size(); i++){
+        for (int i = 0; i < notes.size(); i++){
             String data = notes.get(i).getPoznamka() + ";" + notes.get(i).getSecond();
-            write(i,data);
+            write(i+1,data);
         }
+    }
+
+    public void updatePassword(String newPassword){
+        deleteFile();
+        createFile();
+        setPassword(newPassword);
+        write(0,"GodIsGood");
+        for (int i = 0; i < notes.size(); i++){
+            String data = notes.get(i).getPoznamka() + ";" + notes.get(i).getSecond();
+            write(i+1,data);
+        }
+
     }
 
 

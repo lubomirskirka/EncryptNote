@@ -30,6 +30,12 @@ public class Main {
                 case 3:
                     addNote();
                     break;
+                case 4:
+                    Console.deleteNote();
+                    break;
+                case 5:
+                    changePassword();
+                    break;
                 case 0:
                     exit();
                     break;
@@ -44,6 +50,11 @@ public class Main {
     public static void addNote(){
         notes.add(new Note(Console.getString("Write your note: ")));
         database.updateNotes(notes);
+    }
+
+    public static void changePassword(){
+        String password = Console.getString("New password");
+        database.updatePassword(password);
     }
 
 

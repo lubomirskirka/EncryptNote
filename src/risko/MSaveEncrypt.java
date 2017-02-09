@@ -23,4 +23,9 @@ public class MSaveEncrypt extends MSave {
     public String read(int lineNumber) {
         return encryptor.decrypt(super.read(lineNumber));
     }
+
+    public void setPassword(String password){
+        encryptor = new BasicTextEncryptor();
+        encryptor.setPassword(password);
+    }
 }

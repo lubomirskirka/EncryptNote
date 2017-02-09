@@ -13,11 +13,22 @@ public class Console {
 		System.out.println("1 - Show notes");
 		System.out.println("2 - Show note detail");
         System.out.println("3 - Add note");
-		System.out.println("3 - Odstranit poznamku");
-		System.out.println("4 - Zmenit heslo");
-		System.out.println("5 - Vlastnosti");
+		System.out.println("4 - Delete note");
+		System.out.println("5 - Change password");
 		System.out.println("0 - Ukoncit");
 	}
+
+	public static void deleteNote(){
+        int indexOfNote = getNumFromTo("Write number of note or 0 for exit: ",0,Main.notes.size(), "Note don't exist");
+        if (indexOfNote != 0){
+            Note note = Main.notes.remove(indexOfNote-1);
+            blank(1);
+            System.out.println("Note removed");
+
+        }
+        enterToContinue();
+        blank(3);
+    }
 
 	public static void printNote(){
 	    int indexOfNote = getNumFromTo("Write number of note or 0 for exit: ",0,Main.notes.size(), "Note don't exist");
@@ -48,7 +59,7 @@ public class Console {
 	}
 
     public static void print(String print){
-        System.out.println(print);
+        System.out.print(print);
     }
 
     public static String printHello(){
