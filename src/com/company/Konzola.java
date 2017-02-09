@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Konzola {
 	static Scanner kb = new Scanner(System.in);
 	
-	public static void vypisMenu(){
+	public static void printMenu(){
 		System.out.println("1 - Pridat poznamku");
 		System.out.println("2 - Upravit");
 		System.out.println("3 - Odstranit");
@@ -13,11 +13,17 @@ public class Konzola {
 		System.out.println("5 - Vlastnosti");
 		System.out.println("0 - Ukoncit");
 	}
-	public static char vyberAkciu(){
-		System.out.print("Vyber akciu: ");
-		String a = kb.nextLine();
-		return ' ';
+	public static int chooseAction(){
+		return getNumFromTo("Vyber akciu: ", 0, 5, "Vyber položku z menu");
 	}
+
+    public static void print(String print){
+        System.out.println(print);
+    }
+
+    public static void printHello(){
+        System.out.println("Vitaj!");
+    }
 
     public static int getNumFromTo(String what, int from, int to, String error)
     {
@@ -30,11 +36,17 @@ public class Konzola {
             else
             {
                 System.out.print(error);
-                enterToContinue();
             }
         }
         return out;
     }
+
+    public static void blank(int num)
+    {
+        for (int i = 0; i < num;i++)
+            System.out.println();
+    }
+
     public static int getNum(String what)
     {
         int out = 0;
@@ -50,15 +62,11 @@ public class Konzola {
             catch (Exception e)
             {
                 System.out.print("Wrong input");
-                enterToContinue();
+
             }
 
         }
         return out;
     }
-    public static void enterToContinue()
-    {
-        Scanner enter = new Scanner(System.in);
-        enter.nextLine();
-    }
+
 }
